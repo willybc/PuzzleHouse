@@ -6,7 +6,8 @@ var ACELERACION = 350
 var FRICCION = 850
 
 enum {
-	RUN
+	RUN,
+	PUSH
 }
 
 onready var animation_player = $AnimationPlayer
@@ -14,8 +15,11 @@ onready var animation_player = $AnimationPlayer
 var velocidad = Vector2.ZERO#(0, 0) 
 var direccion_vector = Vector2.DOWN#(0, 1)
 var direccion = Vector2.ZERO#(0, 0)
+var push_finished = false
 
 var estado = RUN
+
+var targets = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,16 +44,42 @@ func run_state(delta):
 		velocidad = velocidad.move_toward(input_vector * VELOCIDAD_MAXIMA, ACELERACION * delta)
 		_play_animation("Run")
 	#Si el usuario no esta tocando al personaje
+	
+	elif velocidad.length() == 0 && Input.is_action_pressed("action"):
+		_play_animation("Push")
+		if $RayCast2D.is_colliding():
+			push_finished = false
+			estado = PUSH
+	
 	else:
 		velocidad = velocidad.move_toward(input_vector * VELOCIDAD_MAXIMA, FRICCION * delta)
 		_play_animation("Idle")
+	
 	velocidad = move_and_slide(velocidad)
 	
+	
+		
+	
+func push_state(delta):
+	var collider = $RayCast2D.get_collider()
+	collider._on_interact()
+	
+	if collider:
+		estado = RUN
+
+	velocidad = move_and_slide(velocidad)
+
+func animation_finished():	
+	if !Input.is_action_pressed("action"):
+		estado = RUN
+		velocidad = Vector2.ZERO
 	
 func _physics_process(delta):
 	match estado:
 		RUN:
 			run_state(delta)
+		PUSH:
+			push_state(delta)
 		
 func _play_animation(animation_type: String) -> void:
 	var animation_name = animation_type + "_" + _get_direction_string(direccion_vector.angle())
@@ -64,3 +94,9 @@ func _get_direction_string(angle: float) -> String:
 	if angle_deg > -180 and angle_deg < 180:
 		return "Right"
 	return "Left"
+
+func _on_Hitbox_body_entered(body):
+	targets.append(body)
+
+func _on_Hitbox_body_exited(body):
+	targets.erase(body)
