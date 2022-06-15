@@ -12,10 +12,10 @@ enum {
 
 onready var animation_player = $AnimationPlayer
 
-var velocidad = Vector2.ZERO#(0, 0) 
-var direccion_vector = Vector2.DOWN#(0, 1)
-var direccion = Vector2.ZERO#(0, 0)
-var push_finished = false
+export var velocidad = Vector2.ZERO#(0, 0) 
+export var direccion_vector = Vector2.DOWN#(0, 1)
+export var direccion = Vector2.ZERO#(0, 0)
+export var push_finished = false
 
 var estado = RUN
 
@@ -92,7 +92,9 @@ func _play_animation(animation_type: String) -> void:
 func _get_direction_string(angle: float) -> String:
 	var angle_deg = round(rad2deg(angle))
 	if angle_deg > -180 and angle_deg < 180:
+		$RayCast2D.scale = Vector2(1,1)
 		return "Right"
+	$RayCast2D.scale = Vector2(1,-1)
 	return "Left"
 
 func _on_Hitbox_body_entered(body):
