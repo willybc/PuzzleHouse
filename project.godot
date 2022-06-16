@@ -8,16 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "BoxTarget",
-"language": "GDScript",
-"path": "res://objects/BoxTarget.gd"
-} ]
-_global_script_class_icons={
-"BoxTarget": ""
-}
-
 [application]
 
 config/name="Godot Game"

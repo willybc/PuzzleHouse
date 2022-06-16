@@ -13,7 +13,7 @@ height = 0.0
 radius = 12.0
 
 [sub_resource type="StreamTexture" id=6]
-load_path = "res://.import/idle.png-dd6cbaa53f7a0b14da5c9310556a37b7.stex"
+load_path = "res://.import/idle-up.png-d6a6b379a650a7b4c11df6ce608961d2.stex"
 
 [sub_resource type="Animation" id=18]
 resource_name = "Idle_Left"

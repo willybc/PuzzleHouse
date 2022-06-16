@@ -1,12 +1,13 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/caja.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilemap2.png" type="Texture" id=2]
 [ext_resource path="res://objects/BoxTarget.gd" type="Script" id=3]
 [ext_resource path="res://objects/Player.gd" type="Script" id=4]
+[ext_resource path="res://player/assets/idle.png" type="Texture" id=5]
 
-[sub_resource type="StreamTexture" id=6]
-load_path = "res://.import/idle.png-dd6cbaa53f7a0b14da5c9310556a37b7.stex"
+[sub_resource type="StreamTexture" id=19]
+load_path = "res://.import/run-up.png-554987bfd9277c47109955d3b2bfadba.stex"
 
 [sub_resource type="CapsuleShape2D" id=3]
 height = 0.0
@@ -29,7 +30,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 6 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("PlayerSprite:hframes")
@@ -83,7 +84,64 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 6 ) ]
+"values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PlayerSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="StreamTexture" id=22]
+load_path = "res://.import/idle-up.png-d6a6b379a650a7b4c11df6ce608961d2.stex"
+
+[sub_resource type="Animation" id=23]
+resource_name = "Idle_Up"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 22 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("PlayerSprite:hframes")
@@ -232,7 +290,60 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="Animation" id=25]
+resource_name = "Push_Top"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 14 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PlayerSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="StreamTexture" id=21]
 load_path = "res://.import/run.png-5d02ff29e6d14010f7f03827fb804630.stex"
 
 [sub_resource type="Animation" id=10]
@@ -249,7 +360,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 8 ) ]
+"values": [ SubResource( 21 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("PlayerSprite:hframes")
@@ -287,6 +398,9 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+
+[sub_resource type="StreamTexture" id=8]
+load_path = "res://.import/run.png-5d02ff29e6d14010f7f03827fb804630.stex"
 
 [sub_resource type="Animation" id=9]
 resource_name = "Run_Right"
@@ -341,20 +455,128 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=24]
+resource_name = "Run_Top"
+length = 0.85
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 19 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PlayerSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Run_Up"
+length = 0.85
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 19 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PlayerSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 13, 13 )
 
 [node name="Escena-1" type="Node2D"]
 
 [node name="Tilemap2" type="Sprite" parent="."]
-position = Vector2( 962, 0 )
+position = Vector2( 960, 0 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 11, 289 )
+position = Vector2( 14, 284 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -363,11 +585,11 @@ __meta__ = {
 [node name="PlayerSprite" type="Sprite" parent="Player"]
 position = Vector2( 72, -44 )
 rotation = 8.74228e-08
-scale = Vector2( -1, 1 )
-texture = SubResource( 6 )
+texture = SubResource( 19 )
 hframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
 position = Vector2( 72, -46 )
 shape = SubResource( 3 )
 
@@ -375,25 +597,31 @@ shape = SubResource( 3 )
 position = Vector2( -80, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hitbox"]
+visible = false
 position = Vector2( 152, -46 )
 shape = SubResource( 17 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 anims/Idle_Left = SubResource( 4 )
 anims/Idle_Right = SubResource( 5 )
+anims/Idle_Up = SubResource( 23 )
 anims/Push_Left = SubResource( 18 )
 anims/Push_Right = SubResource( 15 )
+anims/Push_Top = SubResource( 25 )
 anims/Run_Left = SubResource( 10 )
 anims/Run_Right = SubResource( 9 )
+anims/Run_Top = SubResource( 24 )
+anims/Run_Up = SubResource( 20 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Player"]
+visible = false
 position = Vector2( 72, -43 )
-rotation = -1.55712
+rotation = -3.14159
 enabled = true
 cast_to = Vector2( 0, 15 )
 
 [node name="Box" type="KinematicBody2D" parent="."]
-position = Vector2( 117, 241 )
+position = Vector2( 182, 151 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true

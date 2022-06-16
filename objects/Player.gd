@@ -57,16 +57,12 @@ func run_state(delta):
 	
 	velocidad = move_and_slide(velocidad)
 	
-	
-		
-	
-func push_state(delta):
+func push_state(_delta):
 	var collider = $RayCast2D.get_collider()
-	collider._on_interact()
+	collider._on_interact($RayCast2D.rotation_degrees)
 	
 	if collider:
 		estado = RUN
-
 	velocidad = move_and_slide(velocidad)
 
 func animation_finished():	
@@ -86,16 +82,34 @@ func _play_animation(animation_type: String) -> void:
 	
 	if animation_name != animation_player.current_animation:
 		animation_player.stop(true)
-		
+	
 	animation_player.play(animation_name)
 
 func _get_direction_string(angle: float) -> String:
 	var angle_deg = round(rad2deg(angle))
-	if angle_deg > -180 and angle_deg < 180:
-		$RayCast2D.scale = Vector2(1,1)
+
+	#Miro hacia arriba
+	if angle_deg == -90:
+		$RayCast2D.rotation_degrees = 180
+		return "Up"
+
+	#Miro hacia abajo
+	if angle_deg == 90:
+		$RayCast2D.rotation_degrees = 0
 		return "Right"
-	$RayCast2D.scale = Vector2(1,-1)
-	return "Left"
+
+	#Miro hacia izquierda
+	if angle_deg == 180:
+		$RayCast2D.rotation_degrees = 90
+		return "Left"
+	
+	#Miro hacia derecha
+	if angle_deg == 0:
+		$RayCast2D.rotation_degrees = -90
+		return "Right"
+	
+	return "Right"
+
 
 func _on_Hitbox_body_entered(body):
 	targets.append(body)
