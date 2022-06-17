@@ -87,7 +87,7 @@ func _play_animation(animation_type: String) -> void:
 
 func _get_direction_string(angle: float) -> String:
 	var angle_deg = round(rad2deg(angle))
-
+	
 	#Miro hacia arriba
 	if angle_deg == -90:
 		$RayCast2D.rotation_degrees = 180
@@ -109,7 +109,6 @@ func _get_direction_string(angle: float) -> String:
 		return "Right"
 	
 	return "Right"
-
 
 func _on_Hitbox_body_entered(body):
 	targets.append(body)

@@ -1,19 +1,15 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/caja.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilemap2.png" type="Texture" id=2]
 [ext_resource path="res://objects/BoxTarget.gd" type="Script" id=3]
 [ext_resource path="res://objects/Player.gd" type="Script" id=4]
 [ext_resource path="res://player/assets/idle.png" type="Texture" id=5]
+[ext_resource path="res://animations/escenasRun_Up.tres" type="Animation" id=6]
+[ext_resource path="res://animations/escenasRun_Top.tres" type="Animation" id=7]
 
-[sub_resource type="StreamTexture" id=19]
-load_path = "res://.import/run-up.png-554987bfd9277c47109955d3b2bfadba.stex"
-
-[sub_resource type="CapsuleShape2D" id=3]
-height = 0.0
-
-[sub_resource type="CircleShape2D" id=17]
-radius = 12.0
+[sub_resource type="StreamTexture" id=14]
+load_path = "res://.import/push.png-f9275e899075adf5a647bef8e1d27936.stex"
 
 [sub_resource type="Animation" id=4]
 resource_name = "Idle_Left"
@@ -180,9 +176,6 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="StreamTexture" id=14]
-load_path = "res://.import/push.png-f9275e899075adf5a647bef8e1d27936.stex"
-
 [sub_resource type="Animation" id=18]
 resource_name = "Push_Left"
 length = 0.85
@@ -291,7 +284,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=25]
-resource_name = "Push_Top"
+resource_name = "Push_Up"
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -455,113 +448,11 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=24]
-resource_name = "Run_Top"
-length = 0.85
-loop = true
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ SubResource( 19 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 6 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerSprite:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("PlayerSprite:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
+[sub_resource type="CapsuleShape2D" id=3]
+height = 0.0
 
-[sub_resource type="Animation" id=20]
-resource_name = "Run_Up"
-length = 0.85
-loop = true
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ SubResource( 19 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 6 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerSprite:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("PlayerSprite:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
+[sub_resource type="CircleShape2D" id=17]
+radius = 12.0
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 13, 13 )
@@ -585,8 +476,21 @@ __meta__ = {
 [node name="PlayerSprite" type="Sprite" parent="Player"]
 position = Vector2( 72, -44 )
 rotation = 8.74228e-08
-texture = SubResource( 19 )
-hframes = 9
+texture = SubResource( 14 )
+hframes = 5
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+anims/Idle_Left = SubResource( 4 )
+anims/Idle_Right = SubResource( 5 )
+anims/Idle_Up = SubResource( 23 )
+anims/Push_Left = SubResource( 18 )
+anims/Push_Right = SubResource( 15 )
+anims/Push_Up = SubResource( 25 )
+anims/Run_Left = SubResource( 10 )
+anims/Run_Right = SubResource( 9 )
+anims/Run_Top = ExtResource( 7 )
+anims/Run_Up = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 visible = false
@@ -601,20 +505,7 @@ visible = false
 position = Vector2( 152, -46 )
 shape = SubResource( 17 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-anims/Idle_Left = SubResource( 4 )
-anims/Idle_Right = SubResource( 5 )
-anims/Idle_Up = SubResource( 23 )
-anims/Push_Left = SubResource( 18 )
-anims/Push_Right = SubResource( 15 )
-anims/Push_Top = SubResource( 25 )
-anims/Run_Left = SubResource( 10 )
-anims/Run_Right = SubResource( 9 )
-anims/Run_Top = SubResource( 24 )
-anims/Run_Up = SubResource( 20 )
-
 [node name="RayCast2D" type="RayCast2D" parent="Player"]
-visible = false
 position = Vector2( 72, -43 )
 rotation = -3.14159
 enabled = true
