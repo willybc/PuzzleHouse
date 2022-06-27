@@ -96,7 +96,7 @@ func _get_direction_string(angle: float) -> String:
 	#Miro hacia abajo
 	if angle_deg == 90:
 		$RayCast2D.rotation_degrees = 0
-		return "Right"
+		return "Down"
 
 	#Miro hacia izquierda
 	if angle_deg == 180:

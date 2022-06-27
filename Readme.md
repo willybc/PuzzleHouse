@@ -3,5 +3,5 @@
 ## Avances
 <details>
  	<summary>Habitacion 1</summary>
-	<img src="" />
+	<img src="https://github.com/willybc/PG/blob/master/screenshots/habitacion1.png?raw=true" />
 </details>
