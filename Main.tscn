@@ -3,7 +3,5 @@
 [ext_resource path="res://escenas/Escena-1.tscn" type="PackedScene" id=2]
 
 [node name="Main" type="Node2D"]
-position = Vector2( 24, 250 )
 
 [node name="Escena-1" parent="." instance=ExtResource( 2 )]
-position = Vector2( -24, -250 )
