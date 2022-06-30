@@ -50,7 +50,6 @@ func run_state(delta):
 		if $RayCast2D.is_colliding():
 			push_finished = false
 			estado = PUSH
-	
 	else:
 		velocidad = velocidad.move_toward(input_vector * VELOCIDAD_MAXIMA, FRICCION * delta)
 		_play_animation("Idle")
