@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/roll.png-cca28e1f45f6c047b250e63a263f6ce5.stex"
+path="res://.import/sister2.png-5aca5db3c6a7485186f8b3762457560c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/roll.png"
-dest_files=[ "res://.import/roll.png-cca28e1f45f6c047b250e63a263f6ce5.stex" ]
+source_file="res://assets/characters/sister2.png"
+dest_files=[ "res://.import/sister2.png-5aca5db3c6a7485186f8b3762457560c.stex" ]
 
 [params]
 
