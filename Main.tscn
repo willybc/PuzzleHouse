@@ -5,4 +5,4 @@
 [node name="Main" type="Node2D"]
 
 [node name="Escena-1" parent="." instance=ExtResource( 2 )]
-position = Vector2( -1, -23 )
+position = Vector2( 64, -20 )
